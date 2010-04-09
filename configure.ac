@@ -50,6 +50,8 @@ AC_SUBST(PAPERSIZEVAR)
 AH_TEMPLATE(PAPERSIZEVAR, [Environment variable that overrides the default paper size])
 AC_DEFINE_UNQUOTED(PAPERSIZEVAR, "$PAPERSIZEVAR")
 
+AC_CHECK_HEADERS([malloc.h])
+
 dnl Create files
 dnl ============
 AC_OUTPUT([
