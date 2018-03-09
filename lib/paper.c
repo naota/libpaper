@@ -120,7 +120,7 @@ char* systempapername(void) {
     char* paperstr;
     char* paperenv;
     const char* paperdef;
-    FILE* ps;
+    FILE* ps = NULL;
     struct stat statbuf;
     const struct paper* pp;
     int c;
@@ -204,6 +204,10 @@ PAPERSIZEVAR, fall-back to the old behaviour.
 	}
     } 
       
+    if (ps) {
+        fclose(ps);
+    }
+
     paperdef = defaultpapername();
     paperstr = malloc((strlen(paperdef) + 1) * sizeof(char));
     
